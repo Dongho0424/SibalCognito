@@ -1,0 +1,11 @@
+{
+  "auth": {
+    "sibalcognitoa03cfde4": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
