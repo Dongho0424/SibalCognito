@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-sibalcognito-dev-224830-authRole",
+      "UnauthRoleArn": "arn:aws:iam::427053419201:role/amplify-sibalcognito-dev-224830-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::427053419201:role/amplify-sibalcognito-dev-224830-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-sibalcognito-dev-224830-deployment",
+      "UnauthRoleName": "amplify-sibalcognito-dev-224830-unauthRole",
+      "StackName": "amplify-sibalcognito-dev-224830",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:427053419201:stack/amplify-sibalcognito-dev-224830/01374210-ed4f-11eb-8309-0aa419ff9968",
+      "AmplifyAppId": "d3qy3t5znd3y5z"
+    },
+    "categories": {
+      "auth": {
+        "sibalcognitoa03cfde4": {
+          "userPoolId": "ap-northeast-2_WN2OKHVly",
+          "userPoolName": "grab-user",
+          "webClientId": "30m7jtvbtcdi0l87vpnhikmtqt",
+          "nativeClientId": "30m7jtvbtcdi0l87vpnhikmtqt"
+        }
+      }
+    }
+  }
+}
