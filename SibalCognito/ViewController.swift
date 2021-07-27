@@ -11,10 +11,7 @@ import AWSCognitoAuthPlugin
 
 class ViewController: UIViewController {
 
-    let id$ = "dongho"
-    let password$ = "HwlnA5>p"
-    
-    let userName$ = "test5username"
+    let userName$ = "tester"
     let newPassWord$ = "asd123!@#"
     
     let idTextField = UITextField()
@@ -27,6 +24,7 @@ class ViewController: UIViewController {
     
     let signOut = UIButton(type: .system)
     let attributes = UIButton(type: .system)
+    let updateAttributes = UIButton(type: .system)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +42,12 @@ class ViewController: UIViewController {
         attributes.setTitle("getAttributes", for: .normal)
         attributes.setTitleColor(.label, for: .normal)
         attributes.addTarget(self, action: #selector(getAttributes(_:)), for: .touchUpInside)
+        
+        view.addSubview(updateAttributes)
+        updateAttributes.frame = CGRect(x: 0, y: 200, width: 100, height: 100)
+        updateAttributes.setTitle("updateAttributes", for: .normal)
+        updateAttributes.setTitleColor(.label, for: .normal)
+        updateAttributes.addTarget(self, action: #selector(updateAttributes(_:)), for: .touchUpInside)
         
         view.addSubview(idTextField)
         idTextField.frame = CGRect(x: 0, y: 200, width: 100, height: 50)
@@ -112,6 +116,12 @@ class ViewController: UIViewController {
         // getAttributes
         fetchAttributes()
     }
+    
+    @objc func updateAttributes(_ sender: Any) {
+        // updateAttributes
+        updateAttribute()
+    }
+    
     
     func signUp(username: String, password: String, name: String) {
         let userAttributes = [AuthUserAttribute(.name, value: name)]
@@ -182,8 +192,6 @@ class ViewController: UIViewController {
                 switch resetResult.nextStep {
                 case .confirmResetPasswordWithCode(let deliveryDetails, let info):
                     print("Confirm reset password with code send to - \(deliveryDetails) \(info)")
-                    
-                    
                 case .done:
                     print("Reset completed")
                 }
@@ -233,6 +241,21 @@ class ViewController: UIViewController {
             }
         }
     }
-
+    
+    func updateAttribute() {
+        Amplify.Auth.update(userAttribute: AuthUserAttribute(.email, value: "pridesam@snu.ac.kr")) { result in
+            do {
+                let updateResult = try result.get()
+                switch updateResult.nextStep {
+                case .confirmAttributeWithCode(let deliveryDetails, let info):
+                    print("Confirm the attribute with details send to - \(deliveryDetails) \(info)")
+                case .done:
+                    print("Update completed")
+                }
+            } catch {
+                print("Update attribute failed with error \(error)")
+            }
+        }
+    }
 }
 
